@@ -5,7 +5,6 @@ import (
 	"leetcodego/leetcode/algo"
 	"math/rand"
 	"reflect"
-	"sort"
 	"time"
 )
 
@@ -31,7 +30,8 @@ func main() {
 		arr2 := arr1
 
 		algo.InsertSort(arr1)
-		sort.Ints(arr2)
+		algo.MergeSort(arr2)
+		//sort.Ints(arr2)
 
 		fmt.Println("--------------------------------------------")
 		fmt.Println(arr1)
@@ -51,4 +51,8 @@ func main() {
 		fmt.Println("Wrong!!")
 	}
 
+	arr3 := []int{1, 3, 4, 2, 5}
+	res := algo.SmallSum(arr3)
+
+	fmt.Println(res)
 }

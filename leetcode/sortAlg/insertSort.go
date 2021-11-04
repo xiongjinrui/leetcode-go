@@ -1,10 +1,8 @@
-package main
+package sortAlg
 
-import "fmt"
-
-// 前N个子序列依次有序
+// InsertSort 前N个子序列依次有序
 // 1， 2， 3...
-func insertSort(arr []int) {
+func InsertSort(arr []int) {
 	if arr == nil || len(arr) < 2 {
 		return
 	}
@@ -19,7 +17,7 @@ func insertSort(arr []int) {
 				continue
 			}
 		}
-		fmt.Println(arr)
+		//fmt.Println(arr)
 	}
 }
 
@@ -27,10 +25,4 @@ func swap(arr []int, i int, j int) {
 	arr[i] = arr[i] ^ arr[j]
 	arr[j] = arr[i] ^ arr[j]
 	arr[i] = arr[i] ^ arr[j]
-}
-
-func main() {
-	arr := []int{3, 8, 1, 10, 233, 78, 6, 1}
-
-	insertSort(arr)
 }

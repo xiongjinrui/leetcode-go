@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package sortAlg
 
 func bubbleSort(arr []int) {
 	if arr == nil || len(arr) < 2 {
@@ -9,13 +7,13 @@ func bubbleSort(arr []int) {
 
 	// 除去沉底的最大数，继续遍历
 	for i := len(arr) - 1; i > 0; i-- {
-		fmt.Println("----------------------------")
+		//fmt.Println("----------------------------")
 		// 将最大数通过一次遍历沉底
 		for j := 0; j < i; j++ {
 			if arr[j] > arr[j+1] {
-				swap(arr, j, j+1)
+				swap1(arr, j, j+1)
 			}
-			fmt.Println(arr)
+			//fmt.Println(arr)
 		}
 	}
 }
@@ -26,14 +24,8 @@ func bubbleSort(arr []int) {
 // a = a ^ b
 // b = (a ^ b) ^ b = a
 // a = (a ^ b) ^ a = b
-func swap(arr []int, i int, j int) {
+func swap1(arr []int, i int, j int) {
 	arr[i] = arr[i] ^ arr[j]
 	arr[j] = arr[i] ^ arr[j]
 	arr[i] = arr[i] ^ arr[j]
-}
-
-func main() {
-	var arr1 = []int{5, 10, 9, 35, 5, 1, 8, 1009, 435}
-
-	bubbleSort(arr1)
 }

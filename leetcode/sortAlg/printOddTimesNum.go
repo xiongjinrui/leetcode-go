@@ -1,4 +1,4 @@
-package main
+package sortAlg
 
 import "fmt"
 
@@ -46,7 +46,7 @@ func printTwoOddTimesNum(arr []int) {
 	fmt.Printf("%d  %d", eor1, eor^eor1)
 }
 
-func main() {
+func test() {
 	arr1 := []int{1, 2, 5, 7, 5, 5, 7, 2, 1, 1, 1}
 	arr2 := []int{1, 2, 5, 1, 7, 5, 5, 7, 2, 1, 1, 1}
 

@@ -1,6 +1,6 @@
-package sortAlg
+package algo
 
-func bubbleSort(arr []int) {
+func BubbleSort(arr []int) {
 	if arr == nil || len(arr) < 2 {
 		return
 	}

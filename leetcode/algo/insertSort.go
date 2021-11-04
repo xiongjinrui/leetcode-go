@@ -1,4 +1,4 @@
-package sortAlg
+package algo
 
 // InsertSort 前N个子序列依次有序
 // 1， 2， 3...

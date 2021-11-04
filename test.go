@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcodego/leetcode/sortAlg"
+	"leetcodego/leetcode/algo"
 	"math/rand"
 	"reflect"
 	"sort"
@@ -30,7 +30,7 @@ func main() {
 		arr1 := generateRandomArray(maxSize, maxValue)
 		arr2 := arr1
 
-		sortAlg.InsertSort(arr1)
+		algo.InsertSort(arr1)
 		sort.Ints(arr2)
 
 		fmt.Println("--------------------------------------------")
@@ -41,6 +41,8 @@ func main() {
 			succeed = false
 			break
 		}
+
+		fmt.Println(algo.GetMaxNumberOfArray(arr1))
 	}
 
 	if succeed {

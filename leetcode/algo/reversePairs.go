@@ -1,36 +1,42 @@
 package algo
 
-func SmallSum(arr []int) int {
+import "fmt"
+
+func ReversePairs(arr []int) int {
 	if arr == nil || len(arr) < 2 {
 		return 0
 	}
 
-	return processMerge(arr, 0, len(arr)-1)
+	return countPairs(arr, 0, len(arr)-1)
 }
 
-func processMerge(arr []int, l int, r int) int {
+func countPairs(arr []int, l int, r int) int {
 	if l == r {
 		return 0
 	}
 
 	mid := l + (r-l)>>1
 
-	return processMerge(arr, l, mid) + processMerge(arr, mid+1, r) + sumMerge(arr, l, mid, r)
+	return countPairs(arr, l, mid) + countPairs(arr, mid+1, r) + countMerge(arr, l, mid, r)
 }
 
 // 将两段有序数组插入到一个临时数组中去，生成一个新的有序数组
-func sumMerge(arr []int, l int, mid int, r int) int {
+func countMerge(arr []int, l int, mid int, r int) int {
 	var temp []int
 	p1 := l
 	p2 := mid + 1
 	res := 0
 
+	fmt.Println(arr[l:r])
+	fmt.Println(arr[l:mid])
+	fmt.Println(arr[(mid + 1):r])
+
 	for p1 <= mid && p2 <= r {
 		if arr[p1] < arr[p2] {
-			res += arr[p1] * (r - p2 + 1)
 			temp = append(temp, arr[p1])
 			p1++
 		} else {
+			res += (mid + l) - (l + p1)
 			temp = append(temp, arr[p2])
 			p2++
 		}
@@ -47,6 +53,8 @@ func sumMerge(arr []int, l int, mid int, r int) int {
 	for i := 0; i < len(temp); i++ {
 		arr[l+i] = temp[i]
 	}
+
+	fmt.Println(res)
 
 	return res
 }

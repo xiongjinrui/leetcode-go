@@ -21,7 +21,7 @@ func main() {
 	testTimes := 100
 	maxSize := 10
 	maxValue := 100
-	succeed := true
+	//succeed := true
 
 	rand.Seed(time.Now().UnixNano())
 
@@ -33,26 +33,26 @@ func main() {
 		algo.MergeSort(arr2)
 		//sort.Ints(arr2)
 
-		fmt.Println("--------------------------------------------")
-		fmt.Println(arr1)
-		fmt.Println(arr2)
+		//fmt.Println("--------------------------------------------")
+		//fmt.Println(arr1)
+		//fmt.Println(arr2)
 
 		if !reflect.DeepEqual(arr1, arr2) {
-			succeed = false
+			//succeed = false
 			break
 		}
 
-		fmt.Println(algo.GetMaxNumberOfArray(arr1))
+		// fmt.Println(algo.GetMaxNumberOfArray(arr1))
 	}
 
-	if succeed {
-		fmt.Println("Right!")
-	} else {
-		fmt.Println("Wrong!!")
-	}
+	// if succeed {
+	// 	fmt.Println("Right!")
+	// } else {
+	// 	fmt.Println("Wrong!!")
+	// }
 
 	arr3 := []int{1, 3, 4, 2, 5}
-	res := algo.SmallSum(arr3)
+	res := algo.ReversePairs(arr3)
 
 	fmt.Println(res)
 }

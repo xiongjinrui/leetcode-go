@@ -1,37 +1,51 @@
 package algo
 
 func SmallSum(arr []int) int {
-	if len(arr) < 2 {
+	if arr == nil || len(arr) < 2 {
 		return 0
 	}
 
-	return SmallSum(arr[:len(arr)/2]) + SmallSum(arr[(1+len(arr)/2):]) + merge1(arr[:len(arr)/2], arr[(1+len(arr)/2):])
+	return process(arr, 0, len(arr)-1)
+}
+
+func process(arr []int, l int, r int) int {
+	if l == r {
+		return 0
+	}
+
+	mid := l + (r-l)>>1
+
+	return process(arr, l, mid) + process(arr, mid+1, r) + sumMerge(arr, l, mid, r)
 }
 
 // 将两段有序数组插入到一个临时数组中去，生成一个新的有序数组
-func merge1(left []int, right []int) int {
+func sumMerge(arr []int, l int, mid int, r int) int {
 	var temp []int
-	i := 0
-	j := 0
+	p1 := l
+	p2 := mid + 1
 	res := 0
 
-	for i < len(left) && j < len(right) {
-		if left[i] < right[j] {
-			res += left[i] * (len(right) - j)
-			temp = append(temp, left[i])
-			i++
+	for p1 <= mid && p2 <= r {
+		if arr[p1] < arr[p2] {
+			res += arr[p1] * (r - p2 + 1)
+			temp = append(temp, arr[p1])
+			p1++
 		} else {
-			temp = append(temp, right[j])
-			j++
+			temp = append(temp, arr[p2])
+			p2++
 		}
 	}
 
-	for ; i < len(left); i++ {
-		temp = append(temp, left[i])
+	for ; p1 <= mid; p1++ {
+		temp = append(temp, arr[p1])
 	}
 
-	for ; j < len(right); j++ {
-		temp = append(temp, right[j])
+	for ; p2 < r; p2++ {
+		temp = append(temp, arr[p2])
+	}
+
+	for i := 0; i < len(temp); i++ {
+		arr[l+i] = temp[i]
 	}
 
 	return res

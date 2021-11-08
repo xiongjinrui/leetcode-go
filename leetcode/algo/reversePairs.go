@@ -29,7 +29,7 @@ func countMerge(arr []int, l int, mid int, r int) int {
 
 	fmt.Println(arr[l:r])
 	fmt.Println(arr[l:mid])
-	fmt.Println(arr[(mid + 1):r])
+	fmt.Println(arr[mid:r])
 
 	for p1 <= mid && p2 <= r {
 		if arr[p1] < arr[p2] {
